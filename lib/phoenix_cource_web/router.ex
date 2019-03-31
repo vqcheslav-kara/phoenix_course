@@ -13,10 +13,26 @@ defmodule PhoenixCourceWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", PhoenixCourceWeb do
-    pipe_through :browser
+  pipeline :auth do
+    plug PhoenixCource.GuardianPipeline
+  end
 
+  pipeline :ensure_auth do
+    plug Guardian.Plug.EnsureAuthenticated
+  end
+
+  scope "/", PhoenixCourceWeb do
+    pipe_through [:browser, :auth]
+    get("/login", AuthController, :new)
+    post("/login", AuthController, :login)
+    get("/sign-in", UserController, :new)
+    post("/sign-in", UserController, :create)
+  end
+
+  scope "/", PhoenixCourceWeb do
+    pipe_through [:browser, :auth, :ensure_auth]
     get "/", PageController, :index
+    post("/logout", AuthController, :logout)
   end
 
   # Other scopes may use custom stacks.

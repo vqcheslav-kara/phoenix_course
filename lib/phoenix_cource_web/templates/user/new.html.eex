@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-5 mx-auto">
+      <div class="card mt-5">
+        <div class="card-body">
+          <h5 class="card-title text-center">Sign-in</h5>
+          <%= form_for @conn, Routes.user_path(@conn, :new),[errors: @errors], fn f -> %>
+            <div >
+              <div class="row">
+                <div class="col-lg-6">
+                 <label for="inputFirstName">First Name</label>
+                  <%= text_input f, :first_name, id: "inputFirstName", class: "form-control", placeholder: "First Name" , required: false, autofocus: true %>
+                  <%= error_tag f, :first_name %>
+                </div>
+                <div class="col-lg-6">
+                 <label for="inputLastName">Last Name</label>
+                  <%= text_input f, :last_name, id: "inputLastName", class: "form-control", placeholder: "Last Name" , required: true, autofocus: true %>
+                  <%= error_tag f, :last_name %>
+                </div> 
+              </div>
+            </div>          
+            <div class="mt-3">
+              <label for="inputEmail">Email address</label>
+              <%= email_input f, :email, id: "inputEmail", class: "form-control", placeholder: "Email address" , required: true, autofocus: true %>
+              <%= error_tag f, :email %>
+            </div>
+            <div class="mt-3">
+              <div class="row">
+                <div class="col-lg-6">
+                 <label for="inputPassword">Password</label>
+                  <%= password_input f, :password, id: "inputPassword", class: "form-control", placeholder: "Password" , required: true, autofocus: true %>
+                  <%= error_tag f, :password %>
+                </div>
+                <div class="col-lg-6">
+                 <label for="inputPasswordRetype">Retype password</label>
+                  <%= password_input f, :password_confirmation, id: "inputPasswordRetype", class: "form-control", placeholder: "Retype password" , required: true, autofocus: true %>
+                  <%= error_tag f, :password_confirmation %>
+                </div> 
+              </div>
+            </div>          
+            <%= submit "Sign-in", class: "btn btn-primary btn-block mt-4" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
