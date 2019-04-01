@@ -73,8 +73,6 @@ defmodule PhoenixCource.User do
         {:error, :invalid_credentials}
 
       user ->
-        IO.inspect(user)
-
         if Bcrypt.verify_pass(plain_text_password, user.password) do
           {:ok, user}
         else
