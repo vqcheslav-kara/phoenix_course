@@ -37,7 +37,7 @@ defmodule PhoenixCource.User do
     |> validate_length(:password, min: 6, max: 100)
     |> validate_inclusion(:user_type, ["admin", "customer"])
     |> unique_constraint(:email, name: "users_email")
-    |> validate_confirmation(:password, message: "Password and confirm password does not match!")
+    |> validate_confirmation(:password, message: "passwords don't match!")
     |> put_password_hash()
   end
 
