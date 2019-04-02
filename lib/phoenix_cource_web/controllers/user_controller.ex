@@ -5,6 +5,7 @@ defmodule PhoenixCourceWeb.UserController do
   def new(conn, _params) do
     conn
     |> assign(:errors, [])
+    |> put_layout("auth.html")
     |> render("new.html")
   end
 

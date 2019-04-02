@@ -2,6 +2,7 @@ defmodule PhoenixCourceWeb.AuthController do
   use PhoenixCourceWeb, :controller
 
   alias PhoenixCource.{User, Guardian}
+  plug :put_layout, "auth.html"
 
   def new(conn, _params) do
     render(conn, "index.html")
@@ -19,8 +20,6 @@ defmodule PhoenixCourceWeb.AuthController do
   end
 
   defp login_reply({:ok, user}, conn) do
-    IO.inspect(user)
-
     conn
     |> put_flash(:success, "Welcome back!")
     |> Guardian.Plug.sign_in(user)

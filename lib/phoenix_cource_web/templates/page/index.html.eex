@@ -1,4 +1,0 @@
-<%= form_for @conn, Routes.auth_path(@conn, :logout), [] ,fn f -> %>
-  <%= submit "Logout", class: "btn btn-primary btn-block mt-4" %>
-<% end %>
-        
