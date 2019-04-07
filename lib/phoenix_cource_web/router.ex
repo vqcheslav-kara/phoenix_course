@@ -23,16 +23,17 @@ defmodule PhoenixCourceWeb.Router do
 
   scope "/", PhoenixCourceWeb do
     pipe_through [:browser, :auth]
-    get("/login", AuthController, :new)
-    post("/login", AuthController, :login)
-    get("/sign-in", UserController, :new)
-    post("/sign-in", UserController, :create)
+    get "/login", AuthController, :new
+    post "/login", AuthController, :login
+    get "/sign-in", UserController, :new
+    post "/sign-in", UserController, :create
   end
 
   scope "/", PhoenixCourceWeb do
     pipe_through [:browser, :auth, :ensure_auth]
     get "/", PageController, :index
-    post("/logout", AuthController, :logout)
+    resources "/category", CategoryController
+    post "/logout", AuthController, :logout
   end
 
   # Other scopes may use custom stacks.

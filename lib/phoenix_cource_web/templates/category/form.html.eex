@@ -1,0 +1,13 @@
+<h2>Create new category</h2>
+<div class="row">
+  <div class="col-lg-4">
+   <label for="inputName">Name</label>
+    <%= text_input @form, :name, id: "inputName", class: "form-control", placeholder: "Name" , required: true, autofocus: true %>
+    <%= error_tag @form, :name %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-4">       
+    <%= submit "Store", class: "btn btn-primary btn-block mt-4" %>
+  </div>
+</div>

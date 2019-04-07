@@ -6,7 +6,7 @@
   <body class="d-flex flex-column h-100" cz-shortcut-listen="true">
     <%= render(PhoenixCourceWeb.LayoutView, "header.html", conn: @conn) %>
     <main role="main" class="flex-shrink-0">
-      <div class="container pt-5">
+      <div class="container pt-5 mt-5">
          <%= if get_flash(@conn, :info)  != nil do %>
             <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
           <% end %>
