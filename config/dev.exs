@@ -6,7 +6,7 @@ use Mix.Config
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with webpack to recompile .js and .css sources.
-config :phoenix_cource, PhoenixCourceWeb.Endpoint,
+config :phoenix_course, PhoenixCourseWeb.Endpoint,
   http: [port: 4000],
   debug_errors: true,
   code_reloader: true,
@@ -46,13 +46,13 @@ config :phoenix_cource, PhoenixCourceWeb.Endpoint,
 # different ports.
 
 # Watch static and templates for browser reloading.
-config :phoenix_cource, PhoenixCourceWeb.Endpoint,
+config :phoenix_course, PhoenixCourseWeb.Endpoint,
   live_reload: [
     patterns: [
       ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
       ~r{priv/gettext/.*(po)$},
-      ~r{lib/phoenix_cource_web/views/.*(ex)$},
-      ~r{lib/phoenix_cource_web/templates/.*(eex)$}
+      ~r{lib/phoenix_course_web/views/.*(ex)$},
+      ~r{lib/phoenix_course_web/templates/.*(eex)$}
     ]
   ]
 
@@ -67,9 +67,9 @@ config :phoenix, :stacktrace_depth, 20
 config :phoenix, :plug_init_mode, :runtime
 
 # Configure your database
-config :phoenix_cource, PhoenixCource.Repo,
+config :phoenix_course, PhoenixCourse.Repo,
   username: "postgres",
   password: "postgres",
-  database: "phoenix_cource_dev",
+  database: "phoenix_course_dev",
   hostname: "localhost",
   pool_size: 10

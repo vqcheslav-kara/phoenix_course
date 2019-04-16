@@ -1,9 +1,9 @@
-defmodule PhoenixCource.MixProject do
+defmodule PhoenixCourse.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :phoenix_cource,
+      app: :phoenix_course,
       version: "0.1.0",
       elixir: "~> 1.5",
       elixirc_paths: elixirc_paths(Mix.env()),
@@ -19,7 +19,7 @@ defmodule PhoenixCource.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {PhoenixCource.Application, []},
+      mod: {PhoenixCourse.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end

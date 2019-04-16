@@ -1,5 +1,5 @@
-defmodule PhoenixCourceWeb.PageControllerTest do
-  use PhoenixCourceWeb.ConnCase
+defmodule PhoenixCourseWeb.PageControllerTest do
+  use PhoenixCourseWeb.ConnCase
 
   test "GET /", %{conn: conn} do
     conn = get(conn, "/")

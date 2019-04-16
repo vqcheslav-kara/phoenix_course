@@ -1,4 +1,4 @@
-defmodule PhoenixCource.DataCase do
+defmodule PhoenixCourse.DataCase do
   @moduledoc """
   This module defines the setup for tests requiring
   access to the application's data layer.
@@ -16,20 +16,20 @@ defmodule PhoenixCource.DataCase do
 
   using do
     quote do
-      alias PhoenixCource.Repo
+      alias PhoenixCourse.Repo
 
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
-      import PhoenixCource.DataCase
+      import PhoenixCourse.DataCase
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(PhoenixCource.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(PhoenixCourse.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(PhoenixCource.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(PhoenixCourse.Repo, {:shared, self()})
     end
 
     :ok

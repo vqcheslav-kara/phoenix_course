@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+  <head>
+    <%= render(PhoenixCourseWeb.LayoutView, "head.html", conn: @conn) %>
+  </head>
+  <body class="d-flex flex-column h-100" cz-shortcut-listen="true">
+    <main role="main" class="flex-shrink-0">
+      <div class="container pt-5">
+         <%= if get_flash(@conn, :info)  != nil do %>
+            <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
+          <% end %>
+          <%= if get_flash(@conn, :error)  != nil do %>
+            <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+          <% end %>
+          <%= render @view_module, @view_template, assigns %>
+      </div>
+    </main>    
+    <script type="text/javascript" src='<%= Routes.static_path(@conn, "/js/app.js") %>'></script>
+  </body>
+</html>

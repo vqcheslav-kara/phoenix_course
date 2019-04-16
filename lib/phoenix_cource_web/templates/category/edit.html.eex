@@ -1,3 +1,0 @@
-<%= form_for @changeset, Routes.category_path(@conn, :update, @category.id),[], fn f -> %>
- <%= render(PhoenixCourceWeb.CategoryView, "form.html", changeset: @changeset, form: f) %>
-<% end %>

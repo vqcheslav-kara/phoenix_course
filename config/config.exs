@@ -7,15 +7,15 @@
 # General application configuration
 use Mix.Config
 
-config :phoenix_cource,
-  ecto_repos: [PhoenixCource.Repo]
+config :phoenix_course,
+  ecto_repos: [PhoenixCourse.Repo]
 
 # Configures the endpoint
-config :phoenix_cource, PhoenixCourceWeb.Endpoint,
+config :phoenix_course, PhoenixCourseWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "AQOT24epykXG9/kA0Ur9AikoffXiBlZ91iV4zCgkJOTptIvwaskA4FCMvb4HenfI",
-  render_errors: [view: PhoenixCourceWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: PhoenixCource.PubSub, adapter: Phoenix.PubSub.PG2]
+  render_errors: [view: PhoenixCourseWeb.ErrorView, accepts: ~w(html json)],
+  pubsub: [name: PhoenixCourse.PubSub, adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger
 config :logger, :console,
@@ -25,8 +25,8 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
-config :phoenix_cource, PhoenixCource.Guardian,
-  issuer: "phoenix_cource",
+config :phoenix_course, PhoenixCourse.Guardian,
+  issuer: "phoenix_course",
   secret_key: "gp8NlMQQ+NY5xj5bP01kNqlQRo9sEcNNWe3U8VZW/JBeMyPQaNBtAjXwPqVCESpT"
 
 # Import environment specific config. This must remain at the bottom

@@ -1,4 +1,4 @@
-defmodule PhoenixCource.Repo.Migrations.CreateCategoryTable do
+defmodule PhoenixCourse.Repo.Migrations.CreateCategoryTable do
   use Ecto.Migration
 
   def change do

@@ -1,3 +1,3 @@
-defmodule PhoenixCourceWeb.LayoutViewTest do
-  use PhoenixCourceWeb.ConnCase, async: true
+defmodule PhoenixCourseWeb.LayoutViewTest do
+  use PhoenixCourseWeb.ConnCase, async: true
 end
