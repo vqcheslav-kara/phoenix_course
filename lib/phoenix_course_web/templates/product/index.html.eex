@@ -1,0 +1,26 @@
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>name</th>
+      <th>price</th>
+      <th>category</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= for product <- @products do %>
+    <tr>
+      <td><%= product.id %></td>
+      <td><%= product.name %></td>
+      <td><%= product.price %> $</td>
+      <td><%= product.category.name %></td>
+      <th>
+        <%= link("Edit", to: Routes.product_path(@conn, :edit,product.id), class: "btn btn-primary") %>
+        <%= link("Delete", to: Routes.product_path(@conn, :delete,product.id), class: "btn btn-danger",method: :delete) %>
+      </th>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link("Add new product", to: Routes.product_path(@conn, :new), class: "btn btn-primary float-right") %>

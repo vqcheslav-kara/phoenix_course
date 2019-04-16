@@ -1,0 +1,3 @@
+<%= form_for @changeset, Routes.product_path(@conn, :create),[], fn f -> %>
+ <%= render(PhoenixCourseWeb.ProductView, "form.html", changeset: @changeset, form: f, categories: @categories) %>
+<% end %>
