@@ -29,8 +29,6 @@ defmodule PhoenixCourse.Order do
       ])
       |> validate_inclusion(:status, ["in_progress", "confirmed", "received"])
 
-    IO.inspect(attrs)
-
     case attrs do
       %{"products" => products} ->
         products_transformed = Enum.map(products, fn id -> Product.get(id) end)
@@ -53,8 +51,7 @@ defmodule PhoenixCourse.Order do
   end
 
   def all_preloaded() do
-    all()
-    |> Repo.preload([:products, :user])
+    Repo.preload(all(), [:products, :user])
   end
 
   def get(id) do
@@ -62,7 +59,9 @@ defmodule PhoenixCourse.Order do
   end
 
   def get_preloaded(id) do
-    get(id) |> Repo.preload([:products, :user])
+    id
+    |> get()
+    |> Repo.preload([:products, :user])
   end
 
   def update_by_id(id, params) do

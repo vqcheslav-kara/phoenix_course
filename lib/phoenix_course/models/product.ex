@@ -38,13 +38,11 @@ defmodule PhoenixCourse.Product do
   end
 
   def all() do
-    __MODULE__
-    |> Repo.all()
+    Repo.all(__MODULE__)
   end
 
   def all_preloaded() do
-    all()
-    |> Repo.preload(:category)
+    Repo.preload(all(), :category)
   end
 
   def get(id) do
