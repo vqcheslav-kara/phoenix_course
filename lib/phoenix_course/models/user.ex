@@ -66,6 +66,10 @@ defmodule PhoenixCourse.User do
     Repo.get!(__MODULE__, id)
   end
 
+  def all() do
+    Repo.all(__MODULE__)
+  end
+
   def authenticate_user(email, plain_text_password) do
     case get_by_email(email) do
       nil ->

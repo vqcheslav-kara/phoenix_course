@@ -13,7 +13,7 @@ defmodule PhoenixCourseWeb.ProductController do
   def new(conn, _params) do
     conn
     |> assign(:changeset, Product.changeset(%Product{}))
-    |> assign(:categories, categories_for_select())
+    |> assign(:categories, Category.all())
     |> render("new.html")
   end
 
@@ -30,7 +30,7 @@ defmodule PhoenixCourseWeb.ProductController do
       {:error, changeset} ->
         conn
         |> assign(:changeset, changeset)
-        |> assign(:categories, categories_for_select())
+        |> assign(:categories, Category.all())
         |> render("new.html")
     end
   end
@@ -42,7 +42,7 @@ defmodule PhoenixCourseWeb.ProductController do
     conn
     |> assign(:product, product)
     |> assign(:changeset, changeset)
-    |> assign(:categories, categories_for_select())
+    |> assign(:categories, Category.all())
     |> render("edit.html")
   end
 
@@ -78,9 +78,5 @@ defmodule PhoenixCourseWeb.ProductController do
         |> assign(:changeset, changeset)
         |> render("new.html")
     end
-  end
-
-  defp categories_for_select() do
-    Category.all() |> Enum.map(fn %{id: id, name: name} -> {name, id} end)
   end
 end

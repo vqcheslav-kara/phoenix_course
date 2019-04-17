@@ -32,8 +32,9 @@ defmodule PhoenixCourseWeb.Router do
   scope "/", PhoenixCourseWeb do
     pipe_through [:browser, :auth, :ensure_auth]
     get "/", PageController, :index
-    resources "/category", CategoryController
-    resources "/product", ProductController
+    resources "/categories", CategoryController
+    resources "/products", ProductController
+    resources "/orders", OrderController
     post "/logout", AuthController, :logout
   end
 

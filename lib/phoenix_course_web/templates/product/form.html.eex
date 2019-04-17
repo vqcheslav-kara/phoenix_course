@@ -13,13 +13,13 @@
     <%= error_tag @form, :price %>
   </div>
 </div>
-  <div class="row">
-    <div class="col-lg-4">
-      <label for="inputPrice">Category</label>
-      <%= select @form, :category_id, @categories , class: "form-control" %>
-      <%= error_tag @form, :category_id %>
-    </div>
+<div class="row">
+  <div class="col-lg-4">
+    <label for="selectCategory">Category</label>
+    <%= select @form, :category_id, categories_for_select(@categories) , class: "form-control", id: "selectCategory" %>
+    <%= error_tag @form, :category_id %>
   </div>
+</div>
 <div class="row">
   <div class="col-lg-4">       
     <%= submit "Store", class: "btn btn-primary btn-block mt-4" %>

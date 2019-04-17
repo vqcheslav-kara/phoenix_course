@@ -1,0 +1,27 @@
+<h2>Create new order</h2>
+<div class="row">
+  <div class="col-lg-4">
+   <label for="selectStatus">Status</label>
+    <%= select @form,:status, ["in_progress", "confirmed", "received"] ,id: "selectStatus",class: "form-control", required: true, autofocus: true %>
+    <%= error_tag @form, :status %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-4">
+    <label for="selectUser">User</label>
+    <%= select @form, :user_id,  users_for_select(@users) , class: "form-control", id: "selectUser" %>
+    <%= error_tag @form, :user_id %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-4">
+    <label for="selectProducts">Products</label>
+    <%= multiple_select @form, :products,  products_for_select(@products) , class: "form-control", id: "selectProducts" , selected: Enum.map(@form.data.products, &(&1.id)) %>
+    <%= error_tag @form, :products %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-4">       
+    <%= submit "Store", class: "btn btn-primary btn-block mt-4" %>
+  </div>
+</div>

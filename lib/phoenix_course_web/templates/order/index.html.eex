@@ -1,0 +1,32 @@
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>name</th>
+      <th>user</th>
+      <th>products</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= for order <- @orders do %>
+    <tr>
+      <td><%= order.id %></td>
+      <td><%= order.status %></td>
+      <td><%= order.user.email %></td>
+      <td>
+        <ul>
+          <%= for product <- order.products do %>
+            <li><%= product.name %> <%= product.price %>$</li>
+          <% end %>
+        </ul>
+      </td>
+      <th>
+        <%= link("Edit", to: Routes.order_path(@conn, :edit,order.id), class: "btn btn-primary") %>
+        <%= link("Delete", to: Routes.order_path(@conn, :delete,order.id), class: "btn btn-danger", method: :delete) %>
+      </th>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link("Add new order", to: Routes.order_path(@conn, :new), class: "btn btn-primary float-right") %>
