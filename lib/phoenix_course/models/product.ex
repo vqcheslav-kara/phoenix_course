@@ -41,6 +41,12 @@ defmodule PhoenixCourse.Product do
     Repo.all(__MODULE__)
   end
 
+  def all_by_ids(ids) do
+    __MODULE__
+    |> where([p], p.id in ^ids)
+    |> Repo.all()
+  end
+
   def all_preloaded() do
     Repo.preload(all(), :category)
   end

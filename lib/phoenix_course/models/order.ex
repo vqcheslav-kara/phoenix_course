@@ -31,8 +31,7 @@ defmodule PhoenixCourse.Order do
 
     case attrs do
       %{"products" => products} ->
-        products_transformed = Enum.map(products, fn id -> Product.get(id) end)
-        put_assoc(changeset, :products, products_transformed)
+        put_assoc(changeset, :products, Product.all_by_ids(products))
 
       _ ->
         changeset
