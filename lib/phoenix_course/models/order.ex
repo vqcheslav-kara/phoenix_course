@@ -16,17 +16,8 @@ defmodule PhoenixCourse.Order do
   def changeset(order, attrs \\ %{}) do
     changeset =
       order
-      |> cast(
-        attrs,
-        [
-          :status,
-          :user_id
-        ]
-      )
-      |> validate_required([
-        :status,
-        :user_id
-      ])
+      |> cast(attrs, [:status, :user_id])
+      |> validate_required([:status, :user_id])
       |> validate_inclusion(:status, ["in_progress", "confirmed", "received"])
 
     case attrs do
@@ -45,8 +36,7 @@ defmodule PhoenixCourse.Order do
   end
 
   def all() do
-    __MODULE__
-    |> Repo.all()
+    Repo.all(__MODULE__)
   end
 
   def all_preloaded() do

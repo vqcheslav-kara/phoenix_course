@@ -38,8 +38,13 @@ defmodule PhoenixCourseWeb.Router do
     post "/logout", AuthController, :logout
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", PhoenixCourseWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", PhoenixCourseWeb.Api do
+    pipe_through :api
+    post "/login", AuthController, :login
+  end
+
+  scope "/api", PhoenixCourseWeb.Api do
+    pipe_through [:api, :auth, :ensure_auth]
+    get "/profile", AuthController, :profile
+  end
 end

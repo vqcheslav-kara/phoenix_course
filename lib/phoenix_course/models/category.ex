@@ -13,15 +13,8 @@ defmodule PhoenixCourse.Category do
   @doc false
   def changeset(category, attrs \\ %{}) do
     category
-    |> cast(
-      attrs,
-      [
-        :name
-      ]
-    )
-    |> validate_required([
-      :name
-    ])
+    |> cast(attrs, [:name])
+    |> validate_required([:name])
     |> unique_constraint(:name, name: "categories_name")
   end
 
@@ -32,8 +25,7 @@ defmodule PhoenixCourse.Category do
   end
 
   def all() do
-    __MODULE__
-    |> Repo.all()
+    Repo.all(__MODULE__)
   end
 
   def get(id) do
